@@ -6,6 +6,7 @@ import {
   loginMutation,
   loginMutationVariables,
 } from "../apollo-api/loginMutation";
+import Logo from "../images/logo.bitchain.svg";
 
 const LOGIN_MUTATION = gql`
   mutation loginMutation($loginInput: LoginInput!) {
@@ -57,12 +58,12 @@ export const Login = () => {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center bg-gray-800">
-      <div className="w-full max-w-lg rounded-lg bg-white pt-10 pb-7 text-center">
-        <h3 className="text-2xl text-gray-800">Log In</h3>
+    <div className="mt-10 flex h-screen flex-col items-center lg:mt-28">
+      <div className=" w-full max-w-screen-sm items-center px-5">
+        <img src={Logo} className="mb-10 h-0 w-10" />
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="mt-5 grid gap-3 px-5"
+          className="mt-5 grid w-full gap-3"
         >
           <input
             {...register("email", { required: "Email is required" })}
@@ -92,9 +93,7 @@ export const Login = () => {
           {errors.password?.type === "minLength" && (
             <FormError errorMessage="Password must be more than 10 chars." />
           )}
-          <button className="btn mt-3">
-            {loading ? "Loading..." : "LogIn"}
-          </button>
+          <button className="btn">{loading ? "Loading..." : "LogIn"}</button>
           {loginMutationResult?.login.error && (
             <FormError errorMessage={loginMutationResult.login.error} />
           )}
