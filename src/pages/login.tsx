@@ -59,8 +59,8 @@ export const Login = () => {
 
   return (
     <div className="mt-10 flex h-screen flex-col items-center lg:mt-28">
-      <div className=" w-full max-w-screen-sm items-center px-5">
-        <img src={Logo} className="mb-10 h-0 w-10" />
+      <div className="flex w-full max-w-screen-sm flex-col items-center px-5">
+        {/* <img src={Logo} /> */}
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="mt-5 grid w-full gap-3"
